@@ -10,14 +10,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:todo-manager.helloWorld"
+    "onCommand:todo-manager.findTODOS"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "todo-manager.helloWorld",
-        "title": "Hello World"
+        "command": "todo-manager.findTODOS",
+        "title": "Find TODOS"
       }
     ]
   },
