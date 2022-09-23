@@ -1,20 +1,12 @@
 import { rgPath } from "@vscode/ripgrep";
 import { spawnSync, SpawnSyncReturns } from "child_process";
+import { MatchInfo } from "./types/MatchInfo.d";
 
 // CONSTANTS
 const END_LINE_SPLITTER = "\r\n";
 
 // Path from node modules.
 const rg = rgPath.replace("bin\\rg", "node_modules\\@vscode\\ripgrep\\bin\\rg");
-
-export type MatchInfo = {
-  filePath: string;
-  lineNumber: number;
-  columnNumber: number;
-  lineLength: number;
-  lineContent: string;
-  todoTag: string;
-};
 
 export const ripGrep = (
   regex: string,
@@ -48,6 +40,6 @@ const parseMatch: (match: string) => MatchInfo = (match: string) => {
     columnNumber: Number(splitted[3]),
     lineLength: splitted[4].length,
     lineContent: splitted[4],
-    todoTag: splitted[4].split("[")[1].replace("]", ""),
+    todoTag: splitted[4].split("[")[1].split("]")[0],
   };
 };
