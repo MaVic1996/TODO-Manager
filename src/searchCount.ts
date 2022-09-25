@@ -18,9 +18,7 @@ export const startSearch = (context: vscode.ExtensionContext) => {
   searchInterval = setInterval(() => searchTodos(context), INTERVAL_TIME);
 };
 
-const searchTodos: (context: vscode.ExtensionContext) => MatchInfo[] = (
-  context
-) => {
+const searchTodos = (context: vscode.ExtensionContext) => {
   workspace.workspaceFolders &&
     workspace.workspaceFolders.map((folder: vscode.WorkspaceFolder) => {
       if (!folder.uri || folder.uri.scheme !== "file") return;
@@ -29,5 +27,4 @@ const searchTodos: (context: vscode.ExtensionContext) => MatchInfo[] = (
         ripGrep(VALID_REGEX, folder.uri.fsPath)
       );
     });
-  return [];
 };
