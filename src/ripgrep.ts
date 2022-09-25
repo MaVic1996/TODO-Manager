@@ -21,9 +21,7 @@ export const ripGrep = (
 const getMatchesInfo: (matches: SpawnSyncReturns<Buffer>) => MatchInfo[] = (
   matches: SpawnSyncReturns<Buffer>
 ) => {
-  if (matches.error) {
-    return [];
-  }
+  if (matches.error) return [];
   return matches.stdout
     .toString()
     .split(END_LINE_SPLITTER)

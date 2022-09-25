@@ -10,7 +10,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:todo-manager.findTODOS"
+    "onCommand:todo-manager.findTODOS",
+    "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {
