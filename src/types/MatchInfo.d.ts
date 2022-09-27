@@ -3,6 +3,7 @@ export type MatchInfo = {
   lineNumber: number;
   columnNumber: number;
   lineLength: number;
+  offset: number;
   lineContent: string;
   todoTag: string;
 };

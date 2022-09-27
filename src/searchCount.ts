@@ -4,7 +4,7 @@ import { MatchInfo } from "./types/MatchInfo";
 
 // Constants
 const SUPPORTED_COMMENT_LINES = "(//|#)";
-const VALID_REGEX = `${SUPPORTED_COMMENT_LINES} TODO \\[[a-zA-Z0-9]+\\].*`;
+const VALID_REGEX = `${SUPPORTED_COMMENT_LINES} TODO \\[[a-zA-Z0-9 ]+\\].*`;
 const INTERVAL_TIME = 3_000;
 
 // vscode properties
