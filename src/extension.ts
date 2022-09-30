@@ -22,9 +22,8 @@ export function activate(context: vscode.ExtensionContext) {
       vscode.window.activeTextEditor;
       // The code you place here will be executed every time your command is executed
       // Display a message box to the user
-      vscode.window.showInformationMessage(
-        `TODOS: ${(context.workspaceState.get("todos") as MatchInfo[]).length}`
-      );
+      const todos = context.workspaceState.get("todos") as MatchInfo[];
+      vscode.window.showInformationMessage(`TODOS: ${todos.length}`);
     }
   );
 
