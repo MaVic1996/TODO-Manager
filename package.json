@@ -15,6 +15,23 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "todo-manager",
+          "title": "TODO-Manager",
+          "icon": "resources/checklist.svg"
+        }
+      ]
+    },
+    "views": {
+      "todo-manager": [
+          {
+              "id": "todoManager",
+              "name": "test"
+          }
+      ]
+  },
     "commands": [
       {
         "command": "todo-manager.findTODOS",

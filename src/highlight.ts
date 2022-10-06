@@ -11,17 +11,6 @@ const window = vscode.window;
 // Variables
 let highlightInterval: NodeJS.Timer;
 
-export const startHighlight = (context: vscode.ExtensionContext) => {
-  if (highlightInterval) return;
-  window.onDidChangeActiveTextEditor(() =>
-    window.activeTextEditor.setDecorations(
-      window.createTextEditorDecorationType({}),
-      [new vscode.Range(new vscode.Position(0, 0), new vscode.Position(0, 0))]
-    )
-  );
-  highlightInterval = setInterval(() => highlightTodos(context), INTERVAL_TIME);
-};
-
 const highlightTodos = (context: vscode.ExtensionContext) => {
   const de = window.createTextEditorDecorationType({
     backgroundColor: "red",

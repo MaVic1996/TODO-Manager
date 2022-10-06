@@ -4,6 +4,7 @@ import * as vscode from "vscode";
 import { startHighlight } from "./highlight";
 import { startSearch } from "./searchCount";
 import { MatchInfo } from "./types/MatchInfo";
+import { TreeNodeProvider } from "./tree";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -12,7 +13,16 @@ export function activate(context: vscode.ExtensionContext) {
   // This line of code will only be executed once when your extension is activated
   console.log('Congratulations, your extension "todo-manager" is now active!');
   startSearch(context);
-  startHighlight(context);
+  const provider = new TreeNodeProvider(context);
+  const view = vscode.window.createTreeView("todoManager", {
+    showCollapseAll: true,
+    treeDataProvider: provider,
+  });
+  context.subscriptions.push(view);
+  context.subscriptions.push(provider);
+  view.reveal(null, {});
+  // startHighlight(context);
+
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
