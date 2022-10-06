@@ -20,7 +20,7 @@
         {
           "id": "todo-manager",
           "title": "TODO-Manager",
-          "icon": "resources/checklist.svg"
+          "icon": "resources/todo-manager-icon.svg"
         }
       ]
     },
